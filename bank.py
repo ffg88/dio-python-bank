@@ -1,4 +1,20 @@
-def deposito():
+def criar_usuario():
+    pass
+
+
+def filtrar_usuario():
+    pass
+
+
+def criar_conta():
+    pass
+
+
+def listar_contas():
+    pass
+
+
+def depositar():
     global saldo
     global operacoes
     print('\nOperação de depósito:')
@@ -18,7 +34,7 @@ def deposito():
         print('Retornando ao menu inicial.\n')
 
 
-def saque():
+def sacar():
     global saldo
     global numero_saques
     global operacoes
@@ -49,7 +65,7 @@ def saque():
         print('A operação falhou. O valor digitado é inválido.')
         print('Retornando ao menu inicial.\n')
 
-def extrato():
+def exibir_extrato():
     global saldo
     global operacoes
     print('\n================ EXTRATO =================')
@@ -64,29 +80,46 @@ def main():
         print('[d] Depositar')
         print('[s] Sacar')
         print('[e] Extrato')
+        print('[nc] Cadastrar nova conta')
+        print('[lc] Listar contas')
+        print('[nu] Cadastrar novo usuario')
         print('[q] Sair')
         opcao_menu = input('>>')
 
         if opcao_menu.lower() == 'd':
-            deposito()
+            depositar()
 
         elif opcao_menu.lower() == 's':
-            saque()
+            sacar()
 
         elif opcao_menu.lower() == 'e':
-            extrato()
+            exibir_extrato()
 
         elif opcao_menu.lower() == 'q':
             print('Obrigado por utilizar o PyBank. Até breve.')
             break
+
+        elif opcao_menu.lower() == 'nc':
+            criar_conta()
+
+        elif opcao_menu.lower() == 'lc':
+            listar_contas()
+
+        elif opcao_menu.lower() == 'nu':
+            criar_usuario()
 
         else:
             print('Opção inválida. Por favor, selecione uma opção do menu.\n')
 
 
 # Constantes do banco
+AGENCIA = '0001'
 LIMITE_NUM_SAQUE = 3
 LIMITE_VAL_SAQUE = 500
+
+# Variáveis do banco
+usuarios = []
+contas = []
 
 # Variáveis da conta
 saldo = 0
