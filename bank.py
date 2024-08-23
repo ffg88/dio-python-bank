@@ -1,9 +1,26 @@
 def criar_usuario():
-    pass
+    global usuarios
+    print('\nCriação de usuário:')
+    cpf = input('Digite o CPF do usuário (somente números): ')
+    usuario = filtrar_usuario(cpf)
+
+    if usuario:
+        print('Erro. Já existe usuário cadastrado com este CPF.')
+        print('Retornando ao menu inicial.\n')
+        return
+    
+    nome = input('Digite o nome completo: ')
+    data_nascimento = input('Digite a data de nascimento (dd-mm-aaaa): ')
+    endereco = input('Digite o endereço (logradouro, número - bairro - cidade/sigla estado): ')
+
+    usuarios.append({'nome': nome, 'data_nascimento': data_nascimento, 'cpf': cpf, 'endereco': endereco})
+    print('Operação realizada com sucesso.\n')
 
 
-def filtrar_usuario():
-    pass
+def filtrar_usuario(cpf):
+    global usuarios
+    usuarios_filtrados = [usuario for usuario in usuarios if usuario["cpf"] == cpf]
+    return usuarios_filtrados[0] if usuarios_filtrados else None
 
 
 def criar_conta():
