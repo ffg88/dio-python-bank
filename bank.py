@@ -13,7 +13,7 @@ def criar_usuario():
     data_nascimento = input('Digite a data de nascimento (dd-mm-aaaa): ')
     endereco = input('Digite o endereço (logradouro, número - bairro - cidade/sigla estado): ')
 
-    usuarios.append({'nome': nome, 'data_nascimento': data_nascimento, 'cpf': cpf, 'endereco': endereco})
+    usuarios.append({'nome': nome.title(), 'data_nascimento': data_nascimento, 'cpf': cpf, 'endereco': endereco})
     print('Operação realizada com sucesso.\n')
 
 
@@ -41,7 +41,21 @@ def criar_conta():
 
 
 def listar_contas():
-    pass
+    global contas
+
+    if not contas:
+        print('Nenhuma conta encontrada.')
+        print('Retornando ao menu inicial.\n')
+        return
+    
+    print('\nListando contas cadastradas:')
+    for conta in contas:
+        print('==========================================')
+        print(f'Agência: {conta['agencia']}')
+        print(f'Número da conta: {conta['numero_conta']}')
+        print(f'Usuário: {conta['usuario']['nome']}')
+        print(f'CPF do usuário: {conta['usuario']['cpf']}')
+    print('==========================================\n')
 
 
 def depositar():
