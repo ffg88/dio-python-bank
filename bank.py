@@ -1,13 +1,3 @@
-# Variáveis da conta
-saldo = 0
-numero_saques = 0
-operacoes = ''
-
-# Constantes do banco
-LIMITE_NUM_SAQUE = 3
-LIMITE_VAL_SAQUE = 500
-
-
 def deposito():
     global saldo
     global operacoes
@@ -93,6 +83,15 @@ def main():
         else:
             print('Opção inválida. Por favor, selecione uma opção do menu.\n')
 
+
+# Constantes do banco
+LIMITE_NUM_SAQUE = 3
+LIMITE_VAL_SAQUE = 500
+
+# Variáveis da conta
+saldo = 0
+numero_saques = 0
+operacoes = ''
 
 if __name__ == '__main__':
     main()
