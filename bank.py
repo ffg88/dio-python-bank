@@ -19,12 +19,25 @@ def criar_usuario():
 
 def filtrar_usuario(cpf):
     global usuarios
-    usuarios_filtrados = [usuario for usuario in usuarios if usuario["cpf"] == cpf]
+    usuarios_filtrados = [usuario for usuario in usuarios if usuario['cpf'] == cpf]
     return usuarios_filtrados[0] if usuarios_filtrados else None
 
 
 def criar_conta():
-    pass
+    global usuarios
+    global contas
+    print('\nCriação de conta:')
+    cpf = input('Digite o CPF do usuário (somente números): ')
+    usuario = filtrar_usuario(cpf)
+
+    if not usuario:
+        print('Erro. Usuário não encontrado.')
+        print('Retornando ao menu inicial.\n')
+        return
+
+    num_conta = len(contas) + 1
+    contas.append({'agencia': AGENCIA, 'numero_conta': num_conta, "usuario": usuario})
+    print('Operação realizada com sucesso.\n')
 
 
 def listar_contas():
